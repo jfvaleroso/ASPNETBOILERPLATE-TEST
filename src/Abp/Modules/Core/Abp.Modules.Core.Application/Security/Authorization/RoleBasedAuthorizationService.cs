@@ -67,7 +67,7 @@ namespace Abp.Security.Authorization
                 return false;
             }
 
-            var roleNames = _userRoleManager.GetRolesOfUser(AbpUser.CurrentUserId.Value);
+            var roleNames = _userRoleManager.GetRolesOfUser(AbpUser.CurrentUserId.Value.ToString());
             var granted = permissionDefinition.IsGrantedByDefault;
             foreach (var roleName in roleNames)
             {

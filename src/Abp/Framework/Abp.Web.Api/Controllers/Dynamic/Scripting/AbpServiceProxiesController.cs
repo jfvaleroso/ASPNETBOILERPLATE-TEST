@@ -11,6 +11,10 @@ namespace Abp.WebApi.Controllers.Dynamic.Scripting
     {
         private readonly ScriptProxyManager _scriptProxyManager;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="scriptProxyManager"></param>
         public AbpServiceProxiesController(ScriptProxyManager scriptProxyManager)
         {
             _scriptProxyManager = scriptProxyManager;

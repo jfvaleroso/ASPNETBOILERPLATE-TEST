@@ -22,11 +22,11 @@ namespace Abp.Security.Roles.Management
         public IReadOnlyList<string> GetRolesOfUser(string userId)
         {
             var roleInfo = _userInfoCache.Get(
-                userId.ToString(),
+                userId,
                 () => new UserRoleInfo
                       {
-                          UserId = userId,
-                          Roles = _userRoleRepository.Query(q => q.Where(ur => ur.User.Id == userId).Select(ur => ur.Role.Name).ToList())
+                          UserId = Convert.ToInt32(userId),
+                          Roles = _userRoleRepository.Query(q => q.Where(ur => ur.User.Id == Convert.ToInt32(userId)).Select(ur => ur.Role.Name).ToList())
                       });
 
             return roleInfo.Roles.ToImmutableList();

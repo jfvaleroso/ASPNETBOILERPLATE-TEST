@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Web;
-using System.Web.Mvc;
-using Abp.Application.Authorization.Permissions;
-using Abp.Security.Roles.Management;
-using Microsoft.AspNet.Identity;
+﻿using System.Web.Mvc;
+using Abp.Test;
 using Taskever.Security.Roles;
 using Taskever.Users;
 
@@ -15,19 +8,15 @@ namespace Time.Management.Controllers
     public class HomeController : BaseController
     {
 
-        private readonly ITaskeverUserAppService _taskeverUserAppService;
-
-        public HomeController(ITaskeverUserAppService taskeverUserAppService)
+        private readonly ITestService _testService;
+        public HomeController(ITestService testService)
         {
-            _taskeverUserAppService = taskeverUserAppService;
-
+            _testService = testService;
         }
         public ActionResult Index()
         {
-
-            var test = _taskeverUserAppService.GetAllUsers();
-        
-
+          
+           _testService.Create(new TaskeverRole { DisplayName = "Super Admin", Name = "Super Admin" });
             ViewBag.Message = "Your application description page.";
             return View();
         }
@@ -35,6 +24,8 @@ namespace Time.Management.Controllers
 
         public ActionResult About()
         {
+
+         
             ViewBag.Message = "Your application description page.";
 
             return View();

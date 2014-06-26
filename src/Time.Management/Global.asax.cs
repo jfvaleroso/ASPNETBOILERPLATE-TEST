@@ -11,12 +11,17 @@ namespace Time.Management
 {
     public class MvcApplication : AbpWebApplication
     {
-        protected void Application_Start()
+        //protected void Application_Start()
+        //{
+        //    //AreaRegistration.RegisterAllAreas();
+        //    //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+        //    //RouteConfig.RegisterRoutes(RouteTable.Routes);
+        //    //BundleConfig.RegisterBundles(BundleTable.Bundles);
+        //}
+
+        protected virtual void Application_PostAuthenticateRequest(object sender, EventArgs e)
         {
-            //AreaRegistration.RegisterAllAreas();
-            //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            //RouteConfig.RegisterRoutes(RouteTable.Routes);
-            //BundleConfig.RegisterBundles(BundleTable.Bundles);
+
         }
     }
 }
